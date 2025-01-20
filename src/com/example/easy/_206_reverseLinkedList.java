@@ -1,5 +1,7 @@
 package com.example.easy;
 
+//https://leetcode.com/problems/reverse-linked-list/
+//https://neetcode.io/problems/reverse-a-linked-list
 public class _206_reverseLinkedList {
 
     // Definition for singly-linked list.
