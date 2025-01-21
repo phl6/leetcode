@@ -6,19 +6,28 @@ import java.util.Map;
 //https://leetcode.com/problems/smallest-index-with-equal-value/description/
 public class _2057_smallestIndexWithEqualValue {
 
-    public static int smallestEqual(int[] nums) {
-        Map<Integer, Boolean> hashMap = new HashMap();
-        for(int i = 0; i < nums.length ; i++){
-            hashMap.put(i, i % 10 == nums[i]);
-        }
+//    //super slowwwww 4ms
+//    public static int smallestEqual(int[] nums) {
+//        Map<Integer, Boolean> hashMap = new HashMap();
+//        for(int i = 0; i < nums.length ; i++){
+//            hashMap.put(i, i % 10 == nums[i]);
+//        }
+//
+//        return hashMap.containsValue(Boolean.TRUE) ?
+//                hashMap.entrySet().stream()
+//                    .filter(entry -> entry.getValue().equals(Boolean.TRUE))
+//                    .findFirst()
+//                    .get()
+//                    .getKey() :
+//                -1;
+//    }
 
-        return hashMap.containsValue(Boolean.TRUE) ?
-                hashMap.entrySet().stream()
-                    .filter(entry -> entry.getValue().equals(Boolean.TRUE))
-                    .findFirst()
-                    .get()
-                    .getKey() :
-                -1;
+    //super fast 0ms
+    public static int smallestEqual(int[] nums) {
+       for(int i=0; i < nums.length; i++){
+           if(i % 10 == nums[i]) return i;
+       }
+       return -1;
     }
 
     public static void main(String[] args) {
