@@ -32,12 +32,17 @@ public class _1005_maximizeSumOfArrayAfterKNegations {
     //faster, but not fastest
     //https://youtu.be/wJWVuP48kSI?si=21Aso7gHi0KD1XcQ
     public static int largestSumAfterKNegations(int[] nums, int k){
+        // insert all elements into priority queue
         PriorityQueue<Integer> queue = new PriorityQueue<>();
         IntStream.of(nums).forEach(queue::offer);
+
+        // negate the smallest element (top priority)
         while(k-- > 0){
             int negateInt = -queue.poll();
             queue.offer(negateInt);
         }
+        
+        // return sum of nums
         return queue.stream().mapToInt(Integer::intValue).sum();
     }
 
